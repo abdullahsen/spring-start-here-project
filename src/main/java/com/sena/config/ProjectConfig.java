@@ -23,4 +23,11 @@ public class ProjectConfig {
     public int age() {
         return 33;
     }
+
+    @Bean
+    public Parrot newParrot() {
+        var parrot = new Parrot();
+        parrot.setName("Abdullah");
+        return parrot;
+    }
 }
