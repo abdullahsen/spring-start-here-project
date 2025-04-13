@@ -13,4 +13,14 @@ public class ProjectConfig {
         parrot.setName("Sena");
         return parrot;
     }
+
+    @Bean
+    public String hello() {
+        return "hello";
+    }
+
+    @Bean
+    public int age() {
+        return 33;
+    }
 }
