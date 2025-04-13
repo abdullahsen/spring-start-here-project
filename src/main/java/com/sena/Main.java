@@ -21,10 +21,14 @@ public class Main {
         var abdullahParrot = context.getBean("abdullah", Parrot.class);
         var ilkayParrot = context.getBean("ilkay", Parrot.class);
 
+        var human = context.getBean(Human.class);
+
         System.out.println(parrot.getName());
         System.out.println(hello);
         System.out.println(age);
         System.out.println(abdullahParrot.getName());
         System.out.println(ilkayParrot.getName());
+        System.out.println(human);
+        System.out.println(human.getName());
     }
 }
