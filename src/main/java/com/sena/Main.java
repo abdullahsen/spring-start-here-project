@@ -3,6 +3,8 @@ package com.sena;
 import com.sena.config.ProjectConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.function.Supplier;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -23,6 +25,20 @@ public class Main {
 
         var human = context.getBean(Human.class);
 
+        var manager = new Manager();
+        manager.setName("Necati");
+        manager.setDepartment("Engineering");
+
+        Supplier<Manager> supplier = () -> manager;
+
+        context.registerBean(
+                "manager",
+                Manager.class,
+                supplier
+        );
+
+        var createdManager = context.getBean(Manager.class);
+
         System.out.println(parrot.getName());
         System.out.println(hello);
         System.out.println(age);
@@ -30,5 +46,7 @@ public class Main {
         System.out.println(ilkayParrot.getName());
         System.out.println(human);
         System.out.println(human.getName());
+        System.out.println(manager);
+        System.out.println(manager.getName() + " " + manager.getDepartment());
     }
 }
