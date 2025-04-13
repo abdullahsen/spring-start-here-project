@@ -24,10 +24,17 @@ public class ProjectConfig {
         return 33;
     }
 
-    @Bean
+    @Bean(value = "abdullah")
     public Parrot newParrot() {
         var parrot = new Parrot();
         parrot.setName("Abdullah");
+        return parrot;
+    }
+
+    @Bean(name = "ilkay")
+    public Parrot coolParrot() {
+        var parrot = new Parrot();
+        parrot.setName("Ilkay");
         return parrot;
     }
 }
