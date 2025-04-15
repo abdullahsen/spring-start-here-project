@@ -10,11 +10,12 @@ public class Main {
     public static void main(String[] args) {
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
-        /*
+        /* Section 2 - Defining context and beans
+
         var parrot = context.getBean(Parrot.class);
         var hello = context.getBean(String.class);
         var age = context.getBean(Integer.class);
-        */
+
 
         var parrot = context.getBean("parrot", Parrot.class);
         var hello = context.getBean("hello", String.class);
@@ -47,6 +48,15 @@ public class Main {
         System.out.println(human);
         System.out.println(human.getName());
         System.out.println(manager);
-        System.out.println(manager.getName() + " " + manager.getDepartment());
+        System.out.println(manager.getName() + " " + manager.getDepartment());*/
+
+        //Section 3 - Spring context - wiring beans
+
+        var person = context.getBean(Person.class);
+        var parrot = context.getBean(Parrot.class);
+
+        System.out.println("Person's name: " + person.getName());
+        System.out.println("Parrot's name: " + parrot.getName());
+        System.out.println("Person's parrot: " + person.getParrot());
     }
 }

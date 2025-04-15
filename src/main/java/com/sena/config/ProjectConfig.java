@@ -1,6 +1,7 @@
 package com.sena.config;
 
 import com.sena.Parrot;
+import com.sena.Person;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "com.sena")
 public class ProjectConfig {
 
+    /*    Section 2 - Defining context and beans
     @Bean
     public Parrot parrot() {
         var parrot = new Parrot();
@@ -38,5 +40,25 @@ public class ProjectConfig {
         var parrot = new Parrot();
         parrot.setName("Ilkay");
         return parrot;
+    }*/
+
+
+    //Section 3 - Spring context - wiring beans
+
+    @Bean
+    public Parrot parrot() {
+        Parrot parrot = new Parrot();
+        parrot.setName("Koko");
+        return parrot;
     }
+
+    @Bean
+    public Person person() {
+        Person person = new Person();
+        person.setName("Abdullah");
+        person.setParrot(parrot());
+        return person;
+    }
+
+
 }
