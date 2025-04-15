@@ -52,6 +52,8 @@ public class ProjectConfig {
         return parrot;
     }
 
+
+ /*   Direct method call
     @Bean
     public Person person() {
         Person person = new Person();
@@ -59,6 +61,15 @@ public class ProjectConfig {
         person.setParrot(parrot());
         return person;
     }
+*/
 
+    //Using method parameter
+    @Bean
+    public Person person(Parrot parrot) {
+        Person person = new Person();
+        person.setName("Abdullah");
+        person.setParrot(parrot);
+        return person;
+    }
 
 }
